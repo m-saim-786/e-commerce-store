@@ -4,14 +4,14 @@ import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { DataTable } from '@/components/ui/data-table';
 import { columns } from './columns';
 import { ProductDialog } from '@/components/admin/product-dialog';
+import { DataTable } from '@/components/ui/data-table';
 
 export default function ProductsPage() {
   const [open, setOpen] = useState(false);
 
-  const { data: products, isLoading } = useQuery({
+  const { data: products = [], isLoading } = useQuery({
     queryKey: ['admin-products'],
     queryFn: async () => {
       const res = await fetch('/api/admin/products');
@@ -23,7 +23,7 @@ export default function ProductsPage() {
   if (isLoading) return <div>Loading...</div>;
 
   return (
-    <div className="container py-10">
+    <div className="container py-10 mx-auto px-4">
       <div className="mb-8 flex items-center justify-between">
         <h1 className="text-4xl font-bold">Products</h1>
         <Button onClick={() => setOpen(true)}>

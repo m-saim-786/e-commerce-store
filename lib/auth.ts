@@ -29,7 +29,8 @@ export const authOptions: NextAuthOptions = {
           throw new Error('Invalid credentials');
         }
 
-        const isValid = await bcrypt.compare(credentials.password, user.password);
+        // const isValid = await bcrypt.compare(credentials.password, user.password);
+        const isValid = credentials.password === user.password
 
         if (!isValid) {
           throw new Error('Invalid credentials');
@@ -66,7 +67,7 @@ export const authOptions: NextAuthOptions = {
       };
     },
   },
-  pages: {
-    signIn: '/auth/signin',
-  },
+  // pages: {
+  //   signIn: '/auth/signin',
+  // },
 };

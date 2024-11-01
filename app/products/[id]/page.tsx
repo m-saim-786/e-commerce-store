@@ -19,9 +19,9 @@ export default function ProductPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background ">
       <header className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center justify-between">
+        <div className="container flex h-16 items-center justify-between mx-auto">
           <Link href="/" className="flex items-center gap-2">
             <ArrowLeft className="h-5 w-5" />
             <span>Back to Store</span>
@@ -30,7 +30,7 @@ export default function ProductPage() {
         </div>
       </header>
 
-      <main className="container py-8">
+      <main className="container py-8 mx-auto">
         <div className="grid gap-8 lg:grid-cols-2">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
